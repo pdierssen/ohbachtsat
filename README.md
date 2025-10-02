@@ -1,3 +1,8 @@
+# Librarys
+Adafruit GFX Library by Adafruit
+Adafruit SSD1306
+Adafruit BusIO by Adafruit
+
 # Bug fixing:
 Wenn der Upload fehlschlägt:
 - Serial Monitor Terminals / Serial Plotter schließen
