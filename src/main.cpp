@@ -14,6 +14,13 @@ void setup() {
 }
 
 void loop() {
+  //Startup: Logo pof some sort, Constants: duration
+  //Gyrometer x, y, z Constants: resfresh rate, duration
+  //Accelreometer x, y, z Constants: resfresh rate, duration
+  //Lightsensor value Constants: resfresh rate, duration
+  //Humidity sensor value Constants: resfresh rate, duration
+  //Temperature x, y, z Constants: resfresh rate, duration
+
   blink_loop();
   oled_clear();
   oled_print("Hallo");
