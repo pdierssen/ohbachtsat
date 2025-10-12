@@ -2,6 +2,9 @@
 
 #include "Blink.h"
 #include "OLED.h"
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include "Gyro.h"
 
 // put function declarations here:
 int myFunction(int, int);
@@ -10,7 +13,8 @@ void setup() {
   // put your setup code here, to run once:
   int result = myFunction(2, 3);
   blink_setup();
-  oled_setup();
+  gyro_setup();
+  OLED::instance();
 }
 
 void loop() {
@@ -22,12 +26,9 @@ void loop() {
   //Temperature x, y, z Constants: resfresh rate, duration
 
   blink_loop();
-  oled_clear();
-  oled_print("Hallo");
-  // cursor is not reset
-  oled_show();
-  delay(1000);
-  // put your main code here, to run repeatedly:
+  
+  OLED::instance().getDisplay().println("Hallo");
+  OLED::instance().getDisplay().display();
 }
 
 // put function definitions here:
