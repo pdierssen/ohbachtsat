@@ -57,7 +57,8 @@ void getLux(){
   }
   OLED::instance().getDisplay().clearDisplay();
   OLED::instance().getDisplay().setCursor(0, 0);
-  OLED::instance().getDisplay().print(F("Light level: "));
+  OLED::instance().getDisplay().println(F("Light sensor"));
+  OLED::instance().getDisplay().println(F("Light level: "));
   OLED::instance().getDisplay().print(lux);
   OLED::instance().getDisplay().println(F(" Lux"));
   OLED::instance().getDisplay().display();
