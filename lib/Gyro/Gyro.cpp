@@ -33,7 +33,7 @@ void storeMeasurements(){
   Wire.endTransmission(true);
 }
 
-void visualizeMeasurements(char* heading, int16_t x, int16_t y, int16_t z) {
+void visualizeMeasurements(String heading, int16_t x, int16_t y, int16_t z) {
   OLED::instance().getDisplay().clearDisplay();
   OLED::instance().getDisplay().setCursor(0, 0);
   OLED::instance().getDisplay().println(heading);
