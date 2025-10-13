@@ -1,30 +1,24 @@
 #include <Arduino.h>
-
 #include "Blink.h"
 #include "OLED.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include "Gyro.h"
-
-// put function declarations here:
-int myFunction(int, int);
+#include "Temperature_humidity.h"
+#include "Brightness.h"
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  
   blink_setup();
   gyro_setup();
+  dht11Setup();
+  setupBH1750();
   OLED::instance();
 }
 
 void loop() {
-  blink_loop();
-  
-  OLED::instance().getDisplay().println("Hallo");
-  OLED::instance().getDisplay().display();
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  gyro_gyrometer();
+  gyro_accelerometer();
+  temperature_humidity();
+  bh1750();
 }

@@ -1,5 +1,9 @@
 #include <Wire.h>
 #include <Arduino.h>
+#include <OLED.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include "Gyro.h"
 
 const int MPU=0x68; 
 
@@ -30,7 +34,16 @@ void storeMeasurements(){
 }
 
 void visualizeMeasurements(char* heading, int16_t x, int16_t y, int16_t z) {
-
+  OLED::instance().getDisplay().clearDisplay();
+  OLED::instance().getDisplay().setCursor(0, 0);
+  OLED::instance().getDisplay().println(heading);
+  OLED::instance().getDisplay().print("x: ");
+  OLED::instance().getDisplay().println(x);
+  OLED::instance().getDisplay().print("y: ");
+  OLED::instance().getDisplay().println(y);
+  OLED::instance().getDisplay().print("z: ");
+  OLED::instance().getDisplay().println(z);
+  OLED::instance().getDisplay().display();
 }
 
 void gyro_setup(){
@@ -41,7 +54,7 @@ void gyro_setup(){
   Wire.endTransmission(true);
 }
 
-void gyro_accellerometer(){
+void gyro_accelerometer(){
     startTime = millis();
     unsigned long currentTime = millis(); //init
     while (currentTime - startTime < duration)
